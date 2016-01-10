@@ -20,7 +20,6 @@ learn more about each plugin's dependencies.
 
 #### Installation
 
-```
 Install Vundle
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
