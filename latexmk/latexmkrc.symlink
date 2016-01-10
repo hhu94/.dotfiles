@@ -1,0 +1,15 @@
+# Use xetex, disable ps and dvi.
+$pdflatex = "xelatex %O %S";
+$pdf_mode = 1; $postscript_mode = $dvi_mode = 0;
+
+# Use zathura as pdf viewer.
+$pdf_previewer = "zathura";
+
+# Update pdf automatically.
+$pdf_update_method = 0;
+
+# Run in pvc mode.
+$preview_continuous_mode = 1;
+
+# Cleanup except for dvi, ps and pdf files.
+$cleanup_mode = 2;

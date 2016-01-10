@@ -1,0 +1,5 @@
+# load non-bash specific stuff
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+
+# load bash specific stuff
+[[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc"

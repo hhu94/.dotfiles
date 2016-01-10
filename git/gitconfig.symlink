@@ -1,0 +1,6 @@
+[user]
+	name = Hao Hu
+	email = hhu94@uw.edu
+[core]
+	excludesfile = ~/.gitignore-global
+  editor = vim
