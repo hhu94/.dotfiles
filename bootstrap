@@ -103,7 +103,7 @@ install_dotfiles () {
 
   # Link bin
   for src in $(find -H $DOTFILES_ROOT/bin/*); do
-    dst="$HOME/bin/$(basename "${src%.*}")"
+    dst="$HOME/bin/${src##*/}"
     link_file "$src" "$dst"
   done
 }
