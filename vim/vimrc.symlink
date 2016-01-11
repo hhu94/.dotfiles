@@ -65,18 +65,28 @@ set shiftwidth=2    " Set v> indent size to 4
 set softtabstop=2   " Set tab column size to 4
 set expandtab       " Insert spaces when inserting a tab
 
-" Keep backup files and change destination of backup and swap files.
-" Create ~/.backups if it doesn't exist
-if !isdirectory($HOME."/.backups")
-    call mkdir($HOME."/.backups", "p")
+" Assuming your .vim directory is in its default location
+let $VIMHOME = $HOME . "/.vim"
+
+" Set .vim/tmp/backup as the backup directory
+if !isdirectory($VIMHOME . "/tmp/backup")
+  call mkdir($VIMHOME . "/tmp/backup", "p")
 endif
 set backup
-set backupdir=~/.backups//
-set directory=~/.backups//
+set backupdir=$VIMHOME/tmp/backup
 
-" Keep an undo file (undo changes after closing) in ~/.backups
+" Set .vim/tmp/swap as the swap directory
+if !isdirectory($VIMHOME . "/tmp/swap")
+  call mkdir($VIMHOME . "/tmp/swap", "p")
+endif
+set directory=$VIMHOME/tmp/swap
+
+" Set .vim/tmp/undo as the undo directory
+if !isdirectory($VIMHOME . "/tmp/undo")
+  call mkdir($VIMHOME . "/tmp/undo", "p")
+endif
 set undofile
-set undodir=~/.backups//
+set undodir=$VIMHOME/tmp/undo
 
 " Enable filetype detection, filetype specific plugins and indentation rules.
 filetype plugin indent on
@@ -110,14 +120,14 @@ nmap <leader>O O<Esc>j
 
 " When editing a file, always jump to the last known cursor position.
 autocmd BufReadPost *
-  \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-  \   exe "normal! g`\"" |
-  \ endif
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-          \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
