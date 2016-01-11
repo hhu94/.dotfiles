@@ -9,14 +9,12 @@ DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
-echo ''
-
 info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+  printf "\n\r  [ \033[00;34m..\033[0m ] $1\n"
 }
 
 user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+  printf "\n\r  [ \033[0;33m??\033[0m ] $1\n"
 }
 
 success () {
@@ -96,10 +94,16 @@ install_dotfiles () {
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+}
 
-  # Extra links
-  # Link UltiSnips
+install_extras () {
+  info 'installing extras'
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  # Link vim folders
   link_file "$DOTFILES_ROOT/vim/UltiSnips" "$HOME/.vim/UltiSnips"
+  link_file "$DOTFILES_ROOT/vim/syntax" "$HOME/.vim/syntax"
 
   # Link bin
   for src in $(find -H $DOTFILES_ROOT/bin/*); do
@@ -109,6 +113,7 @@ install_dotfiles () {
 }
 
 install_dotfiles
+install_extras
 
-echo ''
-echo '	All installed!'
+echo
+success 'All installed!'
