@@ -7,7 +7,7 @@
 
 set nocompatible    " Be iMproved
 
-"================================== Vundle =====================================
+"==== Vundle ===================================================================
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -30,7 +30,7 @@ Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 
-"============================= Plugin Variables ================================
+"==== Plugin Variables =========================================================
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger        = "<C-j>"
@@ -48,7 +48,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 " Disable sql.vim omni completion because it uses <C-c>. Pain in the ass.
 let g:omni_sql_no_default_maps = 0
 
-"================================== General ====================================
+"==== General ==================================================================
 
 set number          " Enable line numbers
 set backspace=2     " Allow backspacing over everything in insert mode
@@ -64,6 +64,17 @@ set tabstop=2       " Set tab size to 4
 set shiftwidth=2    " Set v> indent size to 4
 set softtabstop=2   " Set tab column size to 4
 set expandtab       " Insert spaces when inserting a tab
+
+" Enable filetype detection, filetype specific plugins and indentation rules.
+filetype plugin indent on
+
+" Detect .tex files as latex files
+let g:tex_flavor = "latex"
+
+" Enable syntax highlighting.
+syntax enable
+
+"==== Backup, swap and undo files ==============================================
 
 " Assuming your .vim directory is in its default location
 let $VIMHOME = $HOME . "/.vim"
@@ -88,16 +99,7 @@ endif
 set undofile
 set undodir=$VIMHOME/tmp/undo
 
-" Enable filetype detection, filetype specific plugins and indentation rules.
-filetype plugin indent on
-
-" Detect .tex files as latex files
-let g:tex_flavor = "latex"
-
-" Enable syntax highlighting.
-syntax enable
-
-"=================================== Theme =====================================
+"==== Theme ====================================================================
 
 set background=dark
 " Uncomment the following if using terminal vim and the terminal is not running
@@ -105,7 +107,7 @@ set background=dark
 " let g:solarized_termcolors=256
 colorscheme solarized
 
-"=================================== Remaps ====================================
+"==== Remaps ===================================================================
 
 " Use 'space' as leader but show '\' for showcmd
 map <space> <leader>
@@ -116,7 +118,7 @@ map <leader>t :ProjectTreeToggle<CR>
 nmap <leader>o o<Esc>k
 nmap <leader>O O<Esc>j
 
-"=================================== Addons ====================================
+"==== Addons ===================================================================
 
 " When editing a file, always jump to the last known cursor position.
 autocmd BufReadPost *
