@@ -10,11 +10,11 @@ DOTFILES_ROOT=$(pwd -P)
 set -e
 
 info () {
-  printf "\n\r  [ \033[00;34m..\033[0m ] $1\n"
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
 
 user () {
-  printf "\n\r  [ \033[0;33m??\033[0m ] $1\n"
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
 }
 
 success () {
@@ -50,10 +50,7 @@ link_file () {
           B )
             backup_all=true;;
           s )
-            skip=true;;
-          S )
-            skip_all=true;;
-          * )
+            skip=true;; S ) skip_all=true;; * )
             ;;
         esac
       fi
@@ -89,10 +86,10 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' \
+  for src in $(find -H $DOTFILES_ROOT -maxdepth 2 -name '*.symlink' \
                -not -path '*.git*'); do
     dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
+    link_file $src $dst
   done
 }
 
@@ -101,19 +98,58 @@ install_extras () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  # Link vim folders
-  link_file "$DOTFILES_ROOT/vim/UltiSnips" "$HOME/.vim/UltiSnips"
-  link_file "$DOTFILES_ROOT/vim/syntax" "$HOME/.vim/syntax"
-
   # Link bin
+  if ! [[ -s $HOME/bin ]]; then
+    mkdir $HOME/bin
+  fi
   for src in $(find -H $DOTFILES_ROOT/bin/*); do
     dst="$HOME/bin/${src##*/}"
-    link_file "$src" "$dst"
+    link_file $src $dst
+  done
+
+  # Link vim
+  if ! [[ -s $HOME/.vim ]]; then
+    mkdir $HOME/.vim
+  fi
+  for src in $(find -H $DOTFILES_ROOT/vim/ -name '*.vimlink'); do
+    dst="$HOME/.vim/$(basename "${src%.*}")"
+    link_file $src $dst
   done
 }
 
-install_dotfiles
-install_extras
+install_vim_plugins () {
+  printf "\r  [ \033[00;34m..\033[0m ] "
+  read -p "do you want to install vim plugins? (y/n) " -n 1 -r
+  echo
+  if ! [[ $REPLY =~ ^[Yy]$ ]]; then
+    return
+  fi
 
+  info 'installing vim plugins (logged at /tmp/install-vim-plugins.log)'
+
+  if ! [[ -s $HOME/.vim/bundle/Vundle.vim ]]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git \
+              ~/.vim/bundle/Vundle.vim &> /tmp/install-vim-plugins.log
+    success "installed Vundle.vim at $HOME/.vim/bundle/Vundle.vim"
+  fi
+
+  info 'installing plugins, this may take a few minutes'
+  vim +PluginInstall +qall &> /dev/null
+  success "installed plugins into $HOME/.vim/bundle/"
+
+  info 'precompiling YouCompleteMe, this may take a few minutes'
+  ~/.vim/bundle/YouCompleteMe/install.py --clang-completer &>> \
+      /tmp/install-install_vim_plugins.log
+  success 'precompiled YouCompleteMe'
+}
+
+install_dotfiles
 echo
-success 'All installed!'
+
+install_extras
+echo
+
+install_vim_plugins
+echo
+
+success 'all installed!'

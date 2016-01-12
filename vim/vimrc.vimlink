@@ -105,7 +105,7 @@ set background=dark
 " Uncomment the following if using terminal vim and the terminal is not running
 " with solarized colors.
 " let g:solarized_termcolors=256
-colorscheme solarized
+silent! colorscheme solarized
 
 "==== Remaps ===================================================================
 

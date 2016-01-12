@@ -30,8 +30,7 @@ Install plugins:
 vim +PluginInstall +qall
 ```
 Pre-compile YouCompleteMe with support for C-family languages, check out
-https://github.com/Valloric/YouCompleteMe#installation for options to support 
-other languages:
+[this][0] link for options to support other languages:
 ```
 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 ```
@@ -42,4 +41,5 @@ If terminal Vim's colors are messed up (GVim's should be fine), it's because
 your terminal isn't running on the Solarized theme. For instructions of how to
 fix this, follow [this][1] link.
 
+[0]: https://github.com/Valloric/YouCompleteMe#installation
 [1]: https://github.com/altercation/vim-colors-solarized#important-note-for-terminal-users
