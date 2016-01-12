@@ -40,5 +40,6 @@ Done! Happy vimming!
 #### Troubleshooting
 If terminal Vim's colors are messed up (GVim's should be fine), it's because
 your terminal isn't running on the Solarized theme. For instructions of how to
-fix this, follow [this](https://github.com/altercation/vim-colors-solarized
-#important-note-for-terminal-users) link.
+fix this, follow [this][1] link.
+
+[1]: https://github.com/altercation/vim-colors-solarized#important-note-for-terminal-users
