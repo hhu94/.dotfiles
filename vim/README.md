@@ -2,7 +2,7 @@
 This is my Vim configuration. Plugins managed by Vundle. Designed for use with
 Linux.
 
-#### Included Plugins
+## Included Plugins
 * [Vundle](https://github.com/VundleVim/Vundle.vim)
 * [UltiSnips](https://github.com/SirVer/ultisnips)
 * [snipMate & UltiSnip Snippets](https://github.com/honza/vim-snippets)
@@ -14,12 +14,12 @@ Linux.
 * [delimitMate](https://github.com/Raimondi/delimitMate)
 * [Syntastic](https://github.com/scrooloose/syntastic)
 
-#### Dependencies
+## Dependencies
 For this configuration to work, you will need to have Vim with autocmd support 
 and satisfy the requirements of all the plugins. Follow the above links to
 learn more about each plugin's dependencies.
 
-#### Installation
+## Installation
 
 Install Vundle
 ```
@@ -37,7 +37,7 @@ other languages:
 ```
 Done! Happy vimming! 
 
-#### Troubleshooting
+## Troubleshooting
 If terminal Vim's colors are messed up (GVim's should be fine), it's because
 your terminal isn't running on the Solarized theme. For instructions of how to
 fix this, follow [this][1] link.
