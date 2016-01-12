@@ -20,7 +20,7 @@ setup Vim.
 ## Credit
 
 Inspired by [holman/dotfiles](https://github.com/holman/dotfiles). Logo from
-[jglovier/dotfiles-logo](https://github.com/jglovier/dotfiles-logo)
+[jglovier/dotfiles-logo](https://github.com/jglovier/dotfiles-logo).
 
 ## License
 
