@@ -1,7 +1,7 @@
 <img src="https://github.com/hhu94/.dotfiles/blob/master/dotfiles-logo.png"
 width="200">
 
-These are my dotfiles. 
+These are my dotfiles.
 
 ## Installation
 
@@ -14,8 +14,8 @@ Bootstrap!:
 ~/.dotfiles/bootstrap
 ```
 
-See [README](https://github.com/hhu94/.dotfiles/blob/master/vim/README.md) to
-setup Vim.
+See [vim/README](https://github.com/hhu94/.dotfiles/blob/master/vim/README.md)
+for instructions on how to setup Vim.
 
 ## Credit
 
