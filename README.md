@@ -1,6 +1,7 @@
 # ![dotfiles][logo]
 
-These are my dotfiles.
+These are my dotfiles. Includes a bin directory that symlinks its contents to
+~/bin and my personal vim configuration.
 
 ## Installation
 
