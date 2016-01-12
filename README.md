@@ -1,8 +1,10 @@
-![dotfiles](https://github.com/hhu94/.dotfiles/blob/master/dotfiles-logo.png)
+<img src="https://github.com/hhu94/.dotfiles/blob/master/dotfiles-logo.png"
+width="200">
 
 These are my dotfiles. Inspired by 
 [Zach Holman](https://github.com/holman)'s topical
-[dotfiles](https://github.com/holman/dotfiles).
+[dotfiles](https://github.com/holman/dotfiles). Logo from
+[jglovier/dotfiles-logo](https://github.com/jglovier/dotfiles-logo)
 
 ## Installation
 
