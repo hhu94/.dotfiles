@@ -1,7 +1,8 @@
-# Hao's .dotfiles
+![dotfiles](https://github.com/hhu94/.dotfiles/blob/master/dotfiles-logo.png)
 
-These are my groovy dotfiles. Inspired by 
-[Zach Holman](https://github.com/holman)'s topical dotfiles.
+These are my dotfiles. Inspired by 
+[Zach Holman](https://github.com/holman)'s topical
+[dotfiles](https://github.com/holman/dotfiles).
 
 ## Installation
 
@@ -19,4 +20,4 @@ setup Vim.
 
 ## License
 
-MIT License.
+[MIT License](https://github.com/hhu94/.dotfiles/blob/master/LICENSE)

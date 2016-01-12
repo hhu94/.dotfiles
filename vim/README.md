@@ -1,5 +1,6 @@
 # vimrc
-This is my Vim configuration. Plugins managed by Vundle.
+This is my Vim configuration. Plugins managed by Vundle. Designed for use with
+Linux.
 
 #### Included Plugins
 * [Vundle](https://github.com/VundleVim/Vundle.vim)
@@ -38,10 +39,6 @@ Done! Happy vimming!
 
 #### Troubleshooting
 If terminal Vim's colors are messed up (GVim's should be fine), it's because
-your terminal isn't running on the Solarized theme. In this case you have two
-options:
-* Open your vimrc and uncomment the following line in the Theme section:
-`" let g:solarized_termcolors=256`.
-* Get rid of the Solarized theme altogether and use a different theme. To do 
-so, simply remove the plugin from the Vundle section in your vimrc and change 
-the Theme section accordingly.
+your terminal isn't running on the Solarized theme. For instructions of how to
+fix this, follow [this](https://github.com/altercation/vim-colors-solarized
+#important-note-for-terminal-users) link.
