@@ -10,6 +10,3 @@ $pdf_update_method = 0;
 
 # Run in pvc mode.
 $preview_continuous_mode = 1;
-
-# Cleanup except for dvi, ps and pdf files.
-$cleanup_mode = 2;
