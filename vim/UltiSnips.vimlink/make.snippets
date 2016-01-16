@@ -1,12 +1,10 @@
-snippet exmake333 "Makefile for exercises in CSE333" b
-TARGET = $0
+snippet make-ex-333 "Makefile for exercises in CSE333" b
+TARGET = $1
 CC = gcc
 CFLAGS += -Wall -g -std=c11
 
-all: $(TARGET) 
-
-$(TARGET): $(TARGET).c
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c 
+$(TARGET): $2
+	$(CC) $(CFLAGS) $0
 
 clean:
 	/bin/rm -f $(TARGET) *.o *~
