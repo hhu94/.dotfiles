@@ -11,8 +11,8 @@ Linux.
 * [Solarized Colorscheme for
   Vim](https://github.com/altercation/vim-colors-solarized)
 * [Gutentags](https://github.com/ludovicchabant/vim-gutentags)
-* [delimitMate](https://github.com/Raimondi/delimitMate)
 * [Syntastic](https://github.com/scrooloose/syntastic)
+* [Auto Pairs](https://github.com/jiangmiao/auto-pairs)
 
 ## Dependencies
 For this configuration to work, you will need to have Vim with autocmd support 
