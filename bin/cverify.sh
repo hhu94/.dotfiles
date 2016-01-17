@@ -15,4 +15,4 @@ echo "Press a key to continue"
 read -n 1 -s
 echo
 echo "Running valgrind"
-valgrind -q --leak-check=full ./$1 "${@:2}"
+valgrind --leak-check=full ./$1 "${@:2}"
