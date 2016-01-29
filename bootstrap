@@ -138,7 +138,7 @@ install_vim_plugins () {
   success "installed plugins into $HOME/.vim/bundle/"
 
   info 'precompiling YouCompleteMe, this may take a few minutes'
-  ~/.vim/bundle/YouCompleteMe/install.py --clang-completer &>> \
+  ~/.vim/bundle/YouCompleteMe/install.py &>> \
       /tmp/install-install_vim_plugins.log
   success 'precompiled YouCompleteMe'
 }
