@@ -1,11 +1,43 @@
-snippet make-ex-333 "Makefile for exercises in CSE333" b
-TARGET = $1
-CC = gcc
-CFLAGS += -Wall -g -std=c11
+snippet hwheader "Homework header" b
+# Hao Hu - 1337375 - hhu94@uw.edu
+endsnippet
 
-$(TARGET): $2
-	$(CC) $(CFLAGS) $0
+snippet cse333.c "Makefile for c exercises in CSE333" b
+CXX = gcc
+OBJS = $1
+EXE  = $2
+HEADERS = $0
+CPPFLAGS = -Wall -g -std=c11
 
+# default target
+$(EXE): $(OBJS)
+	$(CXX) $(CPPFLAGS) -o $(EXE) $(OBJS)
+
+# source files
+%.o: %.c $(HEADERS)
+	$(CXX) $(CPPFLAGS) -c $<
+
+# phony target - remove generated files and backups
 clean:
-	/bin/rm -f $(TARGET) *.o *~
+	rm -rf $(EXE) *.o *~
+endsnippet
+
+snippet cse333.cc "Makefile for c++ exercises in CSE333" b
+CXX = g++
+OBJS = $1
+EXE  = $2 
+HEADERS = $0
+CPPFLAGS = -Wall -g -std=c++11
+
+# default target
+$(EXE): $(OBJS)
+	$(CXX) $(CPPFLAGS) -o $(EXE) $(OBJS)
+
+# source files
+%.o: %.cc $(HEADERS)
+	$(CXX) $(CPPFLAGS) -c $<
+
+# phony target - remove generated files and backups
+clean:
+	rm -rf $(EXE) *.o *~
 endsnippet
