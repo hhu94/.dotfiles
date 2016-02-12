@@ -30,6 +30,10 @@ Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 
+"==== Runtime Plugins ==========================================================
+
+runtime! ftplugin/man.vim
+
 "==== Plugin Variables =========================================================
 
 " UltiSnips
