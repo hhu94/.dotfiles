@@ -134,12 +134,12 @@ install_vim_plugins () {
   fi
 
   info 'installing plugins, this may take a few minutes'
-  vim +PluginInstall +qall &> /dev/null
+  vim +PluginInstall +qall
   success "installed plugins into $HOME/.vim/bundle/"
 
   info 'precompiling YouCompleteMe, this may take a few minutes'
-  ~/.vim/bundle/YouCompleteMe/install.py &>> \
-      /tmp/install-install_vim_plugins.log
+  python2 ~/.vim/bundle/YouCompleteMe/install.py &>> \
+      /tmp/install_vim_plugins.log
   success 'precompiled YouCompleteMe'
 }
 
