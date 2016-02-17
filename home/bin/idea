@@ -1,5 +1,5 @@
 #!/bin/sh
 
-IDEA_HOME=~/opt/intellij-idea
+IDEA_HOME=/usr/share/intellij-idea-ultimate-edition
 export IDEA_JDK=$HOME/opt/tuxjdk-static-8.66.03/
 exec $IDEA_HOME/bin/idea.sh "$@"
