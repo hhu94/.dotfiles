@@ -1,0 +1,6 @@
+set editor="urxvt -e vim"
+
+nmap -b h 3h
+nmap -b j 3j
+nmap -b k 3k
+nmap -b l 3l

@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Modified from https://github.com/holman/dotfiles/blob/master/script/bootstrap
 # Used in https://github.com/hhu94/.dotfiles
 # By Hao Hu - @hhu94
 
 cd "$(dirname "$0")"
-DOTFILES_ROOT=$(pwd -P)
+DOTFILES_ROOT="$(pwd -P)/home"
 
 set -e
 
@@ -86,9 +86,8 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H $DOTFILES_ROOT -maxdepth 2 -name '*.symlink' \
-               -not -path '*.git*'); do
-    dst="$HOME/.$(basename "${src%.*}")"
+  for src in $(find $DOTFILES_ROOT -maxdepth 1 -type f); do
+    dst="$HOME/.$(basename $src)"
     link_file $src $dst
   done
 }
@@ -102,7 +101,7 @@ install_extras () {
   if ! [[ -s $HOME/bin ]]; then
     mkdir $HOME/bin
   fi
-  for src in $(find -H $DOTFILES_ROOT/bin/*); do
+  for src in $(find $DOTFILES_ROOT/bin/* -maxdepth 0); do
     dst="$HOME/bin/${src##*/}"
     link_file $src $dst
   done
@@ -111,8 +110,34 @@ install_extras () {
   if ! [[ -s $HOME/.vim ]]; then
     mkdir $HOME/.vim
   fi
-  for src in $(find -H $DOTFILES_ROOT/vim/ -name '*.vimlink'); do
-    dst="$HOME/.vim/$(basename "${src%.*}")"
+  for src in $(find $DOTFILES_ROOT/vim/* -maxdepth 0); do
+    dst="$HOME/.vim/$(basename $src)"
+    link_file $src $dst
+  done
+}
+
+install_dotconfig () {
+  info 'installing .config'
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  CONFIG_ROOT="$DOTFILES_ROOT/config";
+  if ! [[ -s "$HOME/.config" ]]; then
+    mkdir "$HOME/.config"
+  fi
+
+  for subdir in $(find $CONFIG_ROOT/* -maxdepth 0 -type d); do
+    if ! [[ -s "$HOME/.config/$(basename $subdir)" ]]; then
+      mkdir "$HOME/.config/$(basename $subdir)"
+    fi
+    for src in $(find $subdir -maxdepth 1 -type f); do
+      dst="$HOME/.config/$(basename $subdir)/$(basename $src)"
+      link_file $src $dst
+    done
+  done
+
+  for src in $(find $CONFIG_ROOT/* -maxdepth 0 -type f); do
+    dst="$HOME/.config/$(basename $src)"
     link_file $src $dst
   done
 }
@@ -144,6 +169,9 @@ install_vim_plugins () {
 }
 
 install_dotfiles
+echo
+
+install_dotconfig
 echo
 
 install_extras
