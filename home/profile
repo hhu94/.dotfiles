@@ -17,4 +17,7 @@ PATH="$HOME/opt/rvm/bin:$PATH"
 # add node.js
 PATH="$HOME/opt/node/bin:$PATH"
 
+# add couchbase
+PATH="/opt/couchbase/bin:$PATH"
+
 export PATH

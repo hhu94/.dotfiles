@@ -1,0 +1,14 @@
+" Use terminal vim as editor
+set editor="urxvt -e vim" 
+
+" Move around faster
+noremap h 3h
+noremap j 3j
+noremap k 3k
+noremap l 3l
+
+" Enable hints for RES buttons
+set ht+=" |//expando-button"
+
+" Disable vimperator for pdf files, except g and t for tab switching
+ignorekeys add -except=g,t .*pdf
