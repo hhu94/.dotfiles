@@ -1,6 +1,12 @@
 " Use terminal vim as editor
 set editor="urxvt -e vim" 
 
+" Show bookmarks bar
+set gui=bookmarks
+
+" Don't focus on input fields when loading a page
+set focuscontent
+
 " Move around faster
 noremap h 3h
 noremap j 3j
@@ -8,7 +14,7 @@ noremap k 3k
 noremap l 3l
 
 " Enable hints for RES buttons
-set ht+=" |//expando-button"
+set hinttags+=" |//expando-button"
 
 " Disable vimperator for pdf files, except g and t for tab switching
-ignorekeys add -except=g,t .*pdf
+ignorekeys add -except=g,t,T,o,:,/,n,N,H,L .*pdf
