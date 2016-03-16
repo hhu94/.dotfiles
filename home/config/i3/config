@@ -180,4 +180,6 @@ bindsym Shift+XF86AudioLowerVolume exec movesinks.sh 1
 # Screen capture controls
 bindsym Print exec shutter -f
 
-for_window [class="^.*"] border pixel 2
+bindsym Scroll_Lock exec ~/.config/i3/scroll-lock.sh
+
+for_window [instance="sun-awt-X11-XFramePeer"] floating enable
