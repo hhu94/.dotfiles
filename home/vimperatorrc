@@ -17,4 +17,4 @@ noremap l 3l
 set hinttags+=" |//expando-button"
 
 " Disable vimperator for pdf files, except g and t for tab switching
-ignorekeys add -except=g,t,T,o,:,/,n,N,H,L .*pdf
+ignorekeys add -except=g,t,T,o,d,u,:,/,n,N,H,L .*pdf
