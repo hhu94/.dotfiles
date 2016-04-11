@@ -15,6 +15,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'w0ng/vim-hybrid'
 
 " For use with exuberant-ctags.
 Plugin 'ludovicchabant/vim-gutentags'
@@ -27,6 +29,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 
@@ -56,22 +60,27 @@ let g:ycm_register_as_syntastic_checker = 0
 " Disable sql.vim omni completion because it uses <C-c>. Pain in the ass.
 let g:omni_sql_no_default_maps = 0
 
+" Airline
+let g:airline_powerline_fonts = 1
+
 "==== General ==================================================================
 
-set number          " Enable line numbers
-set backspace=2     " Allow backspacing over everything in insert mode
-set history=50      " Keep 50 lines of command line history
-set ruler           " Show the cursor position all the time
-set showcmd         " Display incomplete commands
-set incsearch       " Do incremental searching
-set mouse=a         " Enable mouse
-set autoindent      " Always set autoindenting on
-set textwidth=80    " Set text width to 80
-set colorcolumn=+1  " Highlight 81th column
-set tabstop=2       " Set tab size to 4
-set shiftwidth=2    " Set v> indent size to 4
-set softtabstop=2   " Set tab column size to 4
-set expandtab       " Insert spaces when inserting a tab
+set number                  " Enable line numbers
+set backspace=2             " Allow backspacing over everything in insert mode
+set history=50              " Keep 50 lines of command line history
+set ruler                   " Show the cursor position all the time
+set showcmd                 " Display incomplete commands
+set incsearch               " Do incremental searching
+set mouse=a                 " Enable mouse
+set autoindent              " Always set autoindenting on
+set textwidth=80            " Set text width to 80
+set colorcolumn=+1          " Highlight 81th column
+set tabstop=2               " Set tab size to 4
+set shiftwidth=2            " Set v> indent size to 4
+set softtabstop=2           " Set tab column size to 4
+set expandtab               " Insert spaces when inserting a tab
+set laststatus=2            " Always show status line
+set clipboard=unnamedplus   " Set yank and paste register to system clipboard
 
 " Enable filetype detection, filetype specific plugins and indentation rules.
 filetype plugin indent on
@@ -110,10 +119,20 @@ set undodir=$VIMHOME/tmp/undo
 "==== Theme ====================================================================
 
 set background=dark
+
+" Solarized
 " Uncomment the following if using terminal vim and the terminal is not running
 " with solarized colors.
 " let g:solarized_termcolors=256
-silent! colorscheme solarized
+" silent! colorscheme solarized
+
+" Molokai
+" silent! colorscheme molokai
+" let g:rehash256 = 1
+
+" Hybrid
+let g:hybrid_custom_term_colors = 1
+silent! colorscheme hybrid
 
 "==== Remaps ===================================================================
 
