@@ -68,9 +68,9 @@ set mouse=a         " Enable mouse
 set autoindent      " Always set autoindenting on
 set textwidth=80    " Set text width to 80
 set colorcolumn=+1  " Highlight 81th column
-set tabstop=2       " Set tab size to 4
-set shiftwidth=2    " Set v> indent size to 4
-set softtabstop=2   " Set tab column size to 4
+set tabstop=2       " Set tab size to 2
+set shiftwidth=2    " Set v> indent size to 2
+set softtabstop=2   " Set tab column size to 2
 set expandtab       " Insert spaces when inserting a tab
 
 " Enable filetype detection, filetype specific plugins and indentation rules.
