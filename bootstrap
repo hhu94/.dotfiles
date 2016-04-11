@@ -162,6 +162,14 @@ install_vim_plugins () {
   vim +PluginInstall +qall
   success "installed plugins into $HOME/.vim/bundle/"
 
+  echo
+  printf "\r  [ \033[00;34m..\033[0m ] "
+  read -p "do you want to compile YouCompleteMe? (y/n) " -n 1 -r
+  echo
+  if ! [[ $REPLY =~ ^[Yy]$ ]]; then
+    return
+  fi
+
   info 'precompiling YouCompleteMe, this may take a few minutes'
   python2 ~/.vim/bundle/YouCompleteMe/install.py &>> \
       /tmp/install_vim_plugins.log
