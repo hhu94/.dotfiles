@@ -93,3 +93,16 @@
 URxvt*font: xft:Roboto\ Mono\ for\ Powerline:size=12,xft:Inconsolata\ for\ Powerline:size=13
 URxvt.letterSpace: -2
 URxvt.scrollBar: false
+
+URxvt.perl-ext-common: font-size,clipboard,keyboard-select
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.keysym.C-Up: font-size:increase
+URxvt.keysym.C-Down: font-size:decrease
+
+URxvt.keysym.C-S-C: perl:clipboard:copy
+URxvt.keysym.C-S-V: perl:clipboard:paste
+
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
+URxvt.keysym.C-slash: perl:keyboard-select:search
