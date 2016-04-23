@@ -14,7 +14,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'hhu94/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'w0ng/vim-hybrid'
 
@@ -119,19 +119,20 @@ set undodir=$VIMHOME/tmp/undo
 "==== Theme ====================================================================
 
 set background=dark
+set guicolors
 
 " Solarized
-" Uncomment the following if using terminal vim and the terminal is not running
-" with solarized colors.
+" Uncomment the following if using terminal vim with no true color support
+" and the terminal is not running with solarized colors.
 " let g:solarized_termcolors=256
 " silent! colorscheme solarized
 
 " Molokai
-" silent! colorscheme molokai
+" Uncomment the following if using terminal vim with no true color support
 " let g:rehash256 = 1
+" silent! colorscheme molokai
 
 " Hybrid
-let g:hybrid_custom_term_colors = 1
 silent! colorscheme hybrid
 
 "==== Remaps ===================================================================
